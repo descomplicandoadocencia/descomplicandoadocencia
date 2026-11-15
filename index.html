@@ -3,25 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Descomplicando a Docência</title>
-    <meta name="description" content="Portal de recursos educacionais abertos, serviços pedagógicos e soluções digitais para educação básica." />
+    <meta
+      name="description"
+      content="Portal de recursos educacionais abertos, serviços pedagógicos e soluções digitais para educação básica."
+    />
     <meta name="theme-color" content="#0d1b2a" />
     <meta property="og:title" content="Descomplicando a Docência" />
-    <meta property="og:description" content="Recursos educacionais abertos, consultoria, mentoria e formação docente para educação básica." />
-    <link rel="icon" href="assets/img/favicon.png" />
+    <meta
+      property="og:description"
+      content="Recursos digitais, consultoria, mentoria e formação para a educação básica."
+    />
+    <link rel="icon" href="assets/img/favicon.ico" />
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <script defer src="assets/js/app.js"></script>
+    <script type="module" src="assets/js/app.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#app">Pular para o conteúdo</a>
 
-    <div id="vlibras-plugin" aria-label="Acesso especial para deficientes auditivos"></div>
-
     <header class="site-header">
       <div class="container nav-wrap">
         <a class="brand" href="#/inicio" aria-label="Início">
-          <span class="brand-mark">D</span>
-          <span class="brand-text">Descomplicando a Docência</span>
+          <img src="assets/img/logo.png" alt="" width="44" height="44" />
+          <span class="brand-text">escomplicando a Docência</span>
         </a>
 
         <nav class="nav" aria-label="Navegação principal">
@@ -30,10 +35,15 @@
           <a href="#/recursos">Recursos</a>
           <a href="#/equipe">Equipe</a>
           <a href="#/sobre">Sobre</a>
-          <a href="#/licenciamento">Licenciamento</a>
+          <a href="#/blog">Blog</a>
+          <a href="#/curso">Cursos</a>
         </nav>
 
-        <button class="theme-toggle" type="button" aria-label="Alternar entre tema claro e escuro">
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Alternar entre tema claro e escuro"
+        >
           Tema
         </button>
       </div>
@@ -45,18 +55,29 @@
       <div class="container footer-grid">
         <div>
           <h3>Descomplicando a Docência</h3>
-          <p>Recursos digitais, formação e apoio pedagógico para educação básica.</p>
+          <p>Recursos digitais, formação e inovação pedagógica para educação básica.</p>
         </div>
 
         <div>
           <h4>Mapa do site</h4>
-          <ul>
+          <div>
+           <ul>
             <li><a href="#/servicos">Serviços</a></li>
             <li><a href="#/recursos">Recursos</a></li>
             <li><a href="#/equipe">Equipe</a></li>
             <li><a href="#/sobre">Sobre</a></li>
+            <li><a href="#/cursos">Cursos</a></li>
+           </ul>
+          </div>
+          <div>
+           <ul>
+            <li><a href="#/blog">Blog</a></li>
+            <li><a href="#/coluna">Coluna</a></li>
+            <li><a href="#/termo">Termo de uso</a></li>
+            <li><a href="#/privacidade">Privacidade de dados</a></li>
             <li><a href="#/licenciamento">Licenciamento</a></li>
-          </ul>
+           </ul>
+          </div>
         </div>
 
         <div>
@@ -72,7 +93,5 @@
         </div>
       </div>
     </footer>
-
-    <script src="assets/js/vlibras.js"></script>
   </body>
 </html>
