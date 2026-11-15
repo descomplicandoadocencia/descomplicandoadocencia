@@ -1,0 +1,13 @@
+{
+  "name": "descomplicandoadocencia",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-blog.mjs",
+    "test": "npm run build"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^18.1.2"
+  }
+}

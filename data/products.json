@@ -1,0 +1,46 @@
+[
+  {
+    "id": "rea-mais-educacao",
+    "title": "REA: Mais Educação",
+    "type": "REA",
+    "summary": "Conjunto de materiais educativos abertos para planejamento de aulas com foco em alfabetização digital e aprendizagem ativa.",
+    "description": "Materiais pedagógicos em formatos digitais reutilizáveis, com foco na formação de professores e em projetos interdisciplinares.",
+    "tags": ["BNCC", "Educação Básica", "Planejamento"],
+    "category": "Recursos Educacionais Abertos",
+    "slug": "rea-mais-educacao",
+    "link": "#/recursos/rea-mais-educacao"
+  },
+  {
+    "id": "oad-robotica",
+    "title": "OAD: Robótica e Computação",
+    "type": "OAD",
+    "summary": "Objetos de aprendizagem digitais para introdução à lógica de programação e o pensamento computacional.",
+    "description": "Acompanha desde a lógica de programação até a criação de protótipos simples em contextos escolares.",
+    "tags": ["BNCC Computação", "Lógica", "Pensamento Computacional"],
+    "category": "Objetos de Aprendizagem Digitais",
+    "slug": "oad-robotica",
+    "link": "#/recursos/oad-robotica"
+  },
+  {
+    "id": "red-formacao-docente",
+    "title": "RED: Formação Docente",
+    "type": "RED",
+    "summary": "Módulos de capacitação para professores e equipes pedagógicas com foco em metodologias ativas e uso de tecnologias.",
+    "description": "Recursos digitais estruturados para a formação contínua de professores, coordenadores e gestores escolares.",
+    "tags": ["Capacitação", "Educação", "Metodologias Ativas"],
+    "category": "Recursos Educacionais Digitais",
+    "slug": "red-formacao-docente",
+    "link": "#/recursos/red-formacao-docente"
+  },
+  {
+    "id": "rea-mapeamento-competencias",
+    "title": "REA: Mapeamento de Competências",
+    "type": "REA",
+    "summary": "Ferramenta de alinhamento de competências com BNCC e BNCC Computação.",
+    "description": "Modelo para organização curricular com critérios de desempenho, habilidades e indicadores de aprendizagem.",
+    "tags": ["BNCC", "Avaliação", "Currículo"],
+    "category": "Recursos Educacionais Abertos",
+    "slug": "rea-mapeamento-competencias",
+    "link": "#/recursos/rea-mapeamento-competencias"
+  }
+]

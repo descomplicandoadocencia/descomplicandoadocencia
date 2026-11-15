@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Consultoria Pedagógica",
+    "description": "Diagnóstico pedagógico, mapeamento de competências, alinhamento curricular e planejamento de intervenções.",
+    "tags": ["BNCC", "Currículo", "Estratégia"]
+  },
+  {
+    "title": "Mentorias",
+    "description": "Acompanhamento individual e coletivo para professores, coordenadores e gestores escolares.",
+    "tags": ["Mentoria", "Formação", "Docência"]
+  },
+  {
+    "title": "Treinamentos",
+    "description": "Formação profissional com foco em metodologias ativas, tecnologias digitais e práticas acessíveis.",
+    "tags": ["Tecnologia", "Aula", "Capacitação"]
+  },
+  {
+    "title": "Assessoria Pedagógica",
+    "description": "Estruturação de projetos de ensino, materiais e organização curricular para educação básica.",
+    "tags": ["Pedagogia", "Avaliação", "Projetos"]
+  }
+] 

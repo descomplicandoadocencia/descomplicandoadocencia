@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "2026-11-14-ensino-de-computacao",
+    "title": "Ensino de Computação na Educação Básica",
+    "date": "2026-11-14T00:00:00.000Z",
+    "summary": "Como usar recursos digitais para integrar computação na educação básica.",
+    "tags": [
+      "Educação",
+      "Tecnologia",
+      "Computação"
+    ]
+  },
+  {
+    "slug": "_modelo",
+    "title": "Título da publicação",
+    "date": "2026-01-31T00:00:00.000Z",
+    "summary": "Uma ou duas frases que aparecem no carrossel e nos cards.",
+    "area": [
+      "Educação digital"
+    ],
+    "atuacao": [
+      "Docência"
+    ],
+    "tags": [
+      "BNCC",
+      "REA"
+    ],
+    "destaque": 0,
+    "formato": "Artigo",
+    "publico": [
+      "Professores"
+    ],
+    "cover": "assets/img/blog/capa.webp",
+    "cover_alt": "Descrição da imagem de capa",
+    "rascunho": true
+  }
+]
