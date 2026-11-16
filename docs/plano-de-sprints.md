@@ -1,5 +1,6 @@
 # Diagnóstico do Projeto legado e Plano de Sprints
 
+```markdown
 ## Seção 1: Diagnóstico da Arquitetura Legada
 
 O repositório atual apresenta uma base sólida para um portal estático em GitHub Pages, mas ainda precisa de refinamento estrutural para atender ao objetivo de uma plataforma de portfólio institucional, catálogo de recursos e serviços educacionais com foco pedagógico e acessibilidade.
@@ -57,6 +58,9 @@ Reaproveitar os elementos de:
 - blocos de serviços
 - foco em acessibilidade e boas práticas
 - Reduzir divergência de conteúdo para que o site permaneça estável em GitHub Pages sem depender de servidor dinâmico.
+````
+
+Após o diagnostico do copilot.ia do github realizou traçou o seguinte plano de sprints:
 
 ## Seção 2: Plano de Sprints para Modernização Incremental
 
@@ -68,9 +72,13 @@ Reaproveitar os elementos de:
 - Entregáveis:
 
 	- index.html com estrutura semântica.
+	- termos.html;
+	- blog.html (tendo um menu lateral com nomes dos colunistas/autores), e gere também o template do blog;
 	- assets/css/styles.css com tokens e reset.
 	- Navegação principal com hash routing.
 	- Rodapé, skip link e foco visível.
+	- uma versão alternativa com estrutura em módulos ES6 (/modules, /data, /components);
+
 
 ### Sprint 2 — Reestruturação de módulos Objetivos:
 
@@ -112,6 +120,7 @@ Reaproveitar os elementos de:
 	- acessibilidade do tema
 	- CSS otimizado e componentes compactos
 	- Uso do recurso Vlibras
+	- uma revisão final com foco em WCAG 2.1 AA e UX para educação básica.
 
 ### Sprint 5 — Conteúdo editorial e institucional Objetivos:
 
@@ -124,6 +133,8 @@ Reaproveitar os elementos de:
 	- texto institucional
 	- páginas de serviços
 	- páginas de licenciamento e sobre
+	- editorial
+	- colunas
 
 ### Sprint 6 — Publicação e validação Objetivos:
 
@@ -132,10 +143,44 @@ Reaproveitar os elementos de:
 - Entregar estrutura pronta para produção.
 - Entregáveis:
 
-	- build local
+	- uma versão com build automatizado para blog/Markdown usando marked + gray-matter
 	- verificação de links
 	- validação final em produção
 
 ## Seção 3: Código Refatorado e Otimizado
 
-Os arquivos essenciais para a implantação em GitHub Pages, mantendo a arquitetura estática, client-side e compatível com hash routing.
+Os arquivos essenciais para a implantação em GitHub Pages, mantendo a arquitetura estática, client-side e compatível com hash routing já foram realizado. 
+
+---
+
+1. CONTEXTO E ATUAÇÃO PROFISSIONAL
+Atue como Engenheiro de Software Sênior, Especialista em Refatoração de Sistemas Legados e Arquiteto de Soluções Web para o setor Educacional (EdTech). Você possui ampla experiência em UX/UI responsiva para estudantes e professores da educação básica, acessibilidade digital (WCAG 2.1 AA) e otimização de performance para plataformas web estáticas.
+
+2. OBJETIVO DO PROJETO
+O objetivo principal é reutilizar a arquitetura e estrutura base do projeto Bio+Tech EduDesign (armazenado em GitHub Repositório) para clonar, refatorar e estruturar a nova plataforma estática do projeto Descomplicando a Docência (descomplicandoadocencia.com.br). Aproveitar algumas informações/ conteúdo do projeto antigo do site armazenado em https://github.com/descomplicandoadocencia/site.git, tipo equipe.
+
+Escopo funcional e pedagógico da plataforma:
+- Divulgação de Recursos Educacionais Abertos (REA), Objetos de Aprendizagem Digitais (OAD) e Recursos Educacionais Digitais (RED) focados na intersecção de todas às areas do conhecimento da educação básica e com o ensino da Computação.
+- Apresentação de serviços educacionais: Consultoria, Mentorias, Treinamentos e Assessoria Pedagógica.
+- Mapeamento de competências e alinhamento às diretrizes da BNCC e BNCC Computação.
+- Licenciamento transparente: Conteúdos em CC BY-SA 4.0 e código-fonte sob licença MIT.
+- Arquitetura Client-Side estática (HTML, CSS e JavaScript puros), publicada via GitHub Pages, com rotinas de build leves em Node.js (Markdown/marked/gray-matter) restritas à compilação de posts/blog e posts/landingpage.
+
+
+3. RESTRIÇÕES TÉCNICAS RÍGIDAS (GITHUB PAGES)
+A arquitetura proposta deve cumprir estritamente os seguintes requisitos operacionais:
+1. Execução 100% Client-Side: Sem dependência de servidores dinâmicos em runtime (Node.js/Python/PHP). Toda a lógica deve rodar no navegador do cliente.
+2. Persistência Local e Serverless: Gerenciamento de estado via LocalStorage/IndexedDB ou integração assíncrona com APIs REST/Serverless públicas.
+3. Roteamento de SPA Adaptado: Uso exclusivo de Hash Routing (`/#/`) para evitar erros 404 durante a navegação direta ou recarregamento de páginas no GitHub Pages.
+4. Gerenciamento de Ativos Estáticos: Emprego rigoroso de caminhos relativos para garantir a resolução correta de imagens, scripts e folhas de estilo no subdomínio do GitHub Pages.
+
+
+4. DIRETRIZES DE MODIFICAÇÃO E QUALIDADE DE CÓDIGO
+1. Reutilização e Reestruturação Modular: Aproveitar o padrão arquitetural legado, organizando módulos reutilizáveis sem reescrever a base do zero desnecessariamente.
+2. Foco Educacional e Acessibilidade (WCAG 2.1 AA): Garantir alto contraste, navegação por teclado, suporte a leitores de tela e visualização adaptada para dispositivos móveis.
+3. Separação Estrita de Responsabilidades: Desacoplar rigorosamente a estrutura (HTML5), estilos/tokens de design (CSS3) e regras de negócio/comportamento (JavaScript ES6+).
+4. Autonomia sem Frameworks Pesados: Priorizar Web APIs nativas e bibliotecas leves via CDN para evitar complexidade em esteiras CI/CD.
+
+
+5. ENTREGÁVEIS ESPERADOS
+Elabore uma resposta técnica estruturada contendo os arquivos entregavéis do sprint 1, atualize esse plano de print em formato marldown, indicando o próximo etapa e também atualize o arquivo README.md
