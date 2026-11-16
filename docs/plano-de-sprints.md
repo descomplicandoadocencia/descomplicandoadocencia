@@ -157,7 +157,7 @@ Os arquivos essenciais para a implantação em GitHub Pages, mantendo a arquitet
 Atue como Engenheiro de Software Sênior, Especialista em Refatoração de Sistemas Legados e Arquiteto de Soluções Web para o setor Educacional (EdTech). Você possui ampla experiência em UX/UI responsiva para estudantes e professores da educação básica, acessibilidade digital (WCAG 2.1 AA) e otimização de performance para plataformas web estáticas.
 
 2. OBJETIVO DO PROJETO
-O objetivo principal é reutilizar a arquitetura e estrutura base do projeto Bio+Tech EduDesign (armazenado em GitHub Repositório) para clonar, refatorar e estruturar a nova plataforma estática do projeto Descomplicando a Docência (descomplicandoadocencia.com.br). Aproveitar algumas informações/ conteúdo do projeto antigo do site armazenado em https://github.com/descomplicandoadocencia/site.git, tipo equipe.
+O objetivo principal é reutilizar a arquitetura e estrutura base do projeto Bio+Tech EduDesign (armazenado em GitHub Repositório) para clonar, refatorar e estruturar a nova plataforma estática do projeto Descomplicando a Docência (descomplicandoadocencia.com.br). Aproveitar algumas informações/ conteúdo do projeto antigo do site armazenado em https://github.com/descomplicandoadocencia/descomplicandoadocencia.git, tipo equipe.
 
 Escopo funcional e pedagógico da plataforma:
 - Divulgação de Recursos Educacionais Abertos (REA), Objetos de Aprendizagem Digitais (OAD) e Recursos Educacionais Digitais (RED) focados na intersecção de todas às areas do conhecimento da educação básica e com o ensino da Computação.
