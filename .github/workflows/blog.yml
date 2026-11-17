@@ -14,6 +14,7 @@ on:
       - "blog/config.json"
       - "data/**"
       - "scripts/**"
+      - "templates/**"
       - "index.html"
       - "package.json"
   pull_request:
@@ -54,7 +55,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add blog recursos lp blog.html 404.html privacidade.html termos.html sitemap.xml
+          # Só adiciona o que existe: "git add" com um caminho inexistente (ex.: recursos/,
+          # sitemap.xml) aborta com "pathspec did not match" e nada seria publicado.
+          for p in blog recursos lp blog.html 404.html privacidade.html termos.html sitemap.xml; do
+            if [ -e "$p" ]; then git add "$p"; fi
+          done
           git diff --cached --quiet || (git commit -m "chore(blog): atualiza publicações geradas" && git push)
       - name: Falhar se algum texto tiver erro (veja as anotações com arquivo e linha)
         if: always() && (steps.build.outcome == 'failure' || steps.landings.outcome == 'failure')

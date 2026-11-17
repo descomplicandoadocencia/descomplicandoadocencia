@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}} · Descomplicando a Docência</title>
+    <meta name="description" content="{{description}}" />
+    <link rel="canonical" href="https://descomplicandoadocencia.com.br/blog/{{slug}}.html" />
+    <meta name="theme-color" content="#0d1b2a" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Descomplicando a Docência" />
+    <meta property="og:title" content="{{title}} · Descomplicando a Docência" />
+    <meta property="og:description" content="{{description}}" />
+    <meta property="og:url" content="https://descomplicandoadocencia.com.br/blog/{{slug}}.html" />
+    <link rel="icon" href="../assets/img/favicon.ico" />
+    <script>
+      (function () {
+        var d = document.documentElement, t = null;
+        d.classList.add("js");
+        try { t = localStorage.getItem("theme"); } catch (e) {}
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        }
+        d.setAttribute("data-theme", t);
+      })();
+    </script>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <script type="module" src="../assets/js/shell.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="../index.html#/inicio">
+          <img src="../assets/img/logo.png" alt="" width="61" height="48" />
+          <span class="brand-text">Descomplicando a Docência</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+          <span>Menu</span>
+        </button>
+
+        <nav id="site-nav" class="nav" aria-label="Navegação principal" data-open="false">
+          <ul class="nav-list">
+          <li><a href="../index.html#/inicio">Início</a></li>
+          <li><a href="../index.html#/servicos">Serviços</a></li>
+          <li><a href="../index.html#/recursos">Recursos</a></li>
+          <li><a href="../index.html#/equipe">Equipe</a></li>
+          <li><a href="../index.html#/sobre">Sobre</a></li>
+          <li><a href="../index.html#/licenciamento">Licenciamento</a></li>
+          <li><a href="../blog.html">Blog</a></li>
+            <li>
+              <button class="theme-toggle" type="button" aria-pressed="true">
+                <span class="theme-toggle-icon" aria-hidden="true"></span>
+                <span>Tema escuro</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo" tabindex="-1">
+      <article class="post">
+        <nav class="crumbs" aria-label="Você está em">
+          <ol>
+            <li><a href="../index.html#/inicio">Início</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li aria-current="page">{{title}}</li>
+          </ol>
+        </nav>
+        <h1>{{title}}</h1>
+        <p class="meta">{{byline}}</p>
+        {{cover}}
+        <div class="prose">
+          {{content}}
+        </div>
+        {{tags}}
+        <p><a href="../blog.html">← Voltar ao blog</a></p>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h2 class="footer-title">Descomplicando a Docência</h2>
+          <p>Recursos digitais, formação e inovação pedagógica para educação básica.</p>
+        </div>
+
+        <nav aria-label="Mapa do site" class="sitemap">
+          <h2 class="footer-title">Mapa do site</h2>
+          <ul class="sitemap-list">
+            <li><a href="../index.html#/inicio">Início</a></li>
+            <li><a href="../index.html#/servicos">Serviços</a></li>
+            <li><a href="../index.html#/recursos">Recursos</a></li>
+            <li><a href="../index.html#/equipe">Equipe</a></li>
+            <li><a href="../index.html#/sobre">Sobre</a></li>
+            <li><a href="../index.html#/licenciamento">Licenciamento</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../privacidade.html">Política de privacidade</a></li>
+            <li><a href="../termos.html">Termos e regras de uso</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 class="footer-title">Licenças</h2>
+          <p>
+            Conteúdo sob
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt" target="_blank" rel="noopener">CC BY-SA 4.0<span class="visually-hidden"> (abre em nova aba)</span></a>
+          </p>
+          <p>
+            Código sob
+            <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT<span class="visually-hidden"> (abre em nova aba)</span></a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Descomplicando a Docência · versão modular (ES6)</title>
+    <meta name="description" content="Portal de recursos educacionais abertos, serviços pedagógicos e soluções digitais para educação básica." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://descomplicandoadocencia.com.br/" />
+    <meta name="theme-color" content="#0d1b2a" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Descomplicando a Docência" />
+    <meta property="og:title" content="Descomplicando a Docência · versão modular (ES6)" />
+    <meta property="og:description" content="Portal de recursos educacionais abertos, serviços pedagógicos e soluções digitais para educação básica." />
+    <meta property="og:url" content="https://descomplicandoadocencia.com.br/" />
+    <link rel="icon" href="assets/img/favicon.ico" />
+    <script>
+      (function () {
+        var d = document.documentElement, t = null;
+        d.classList.add("js");
+        try { t = localStorage.getItem("theme"); } catch (e) {}
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        }
+        d.setAttribute("data-theme", t);
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script type="module" src="assets/js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#app">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#/inicio">
+          <img src="assets/img/logo.png" alt="" width="61" height="48" />
+          <span class="brand-text">Descomplicando a Docência</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+          <span>Menu</span>
+        </button>
+
+        <nav id="site-nav" class="nav" aria-label="Navegação principal" data-open="false">
+          <ul class="nav-list">
+          <li><a href="#/inicio" data-route="/inicio">Início</a></li>
+          <li><a href="#/servicos" data-route="/servicos">Serviços</a></li>
+          <li><a href="#/recursos" data-route="/recursos">Recursos</a></li>
+          <li><a href="#/equipe" data-route="/equipe">Equipe</a></li>
+          <li><a href="#/sobre" data-route="/sobre">Sobre</a></li>
+          <li><a href="#/licenciamento" data-route="/licenciamento">Licenciamento</a></li>
+          <li><a href="blog.html">Blog</a></li>
+            <li>
+              <button class="theme-toggle" type="button" aria-pressed="true">
+                <span class="theme-toggle-icon" aria-hidden="true"></span>
+                <span>Tema escuro</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="app" tabindex="-1">
+      <noscript>
+        <div class="container section">
+          <h1>Descomplicando a Docência</h1>
+          <p>Esta versão usa módulos JavaScript e dados em JSON. Ative o JavaScript no navegador ou acesse a <a href="index.html">versão principal</a>.</p>
+        </div>
+      </noscript>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h2 class="footer-title">Descomplicando a Docência</h2>
+          <p>Recursos digitais, formação e inovação pedagógica para educação básica.</p>
+        </div>
+
+        <nav aria-label="Mapa do site" class="sitemap">
+          <h2 class="footer-title">Mapa do site</h2>
+          <ul class="sitemap-list">
+            <li><a href="#/inicio">Início</a></li>
+            <li><a href="#/servicos">Serviços</a></li>
+            <li><a href="#/recursos">Recursos</a></li>
+            <li><a href="#/equipe">Equipe</a></li>
+            <li><a href="#/sobre">Sobre</a></li>
+            <li><a href="#/licenciamento">Licenciamento</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="privacidade.html">Política de privacidade</a></li>
+            <li><a href="termos.html">Termos e regras de uso</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 class="footer-title">Licenças</h2>
+          <p>
+            Conteúdo sob
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt" target="_blank" rel="noopener">CC BY-SA 4.0<span class="visually-hidden"> (abre em nova aba)</span></a>
+          </p>
+          <p>
+            Código sob
+            <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT<span class="visually-hidden"> (abre em nova aba)</span></a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

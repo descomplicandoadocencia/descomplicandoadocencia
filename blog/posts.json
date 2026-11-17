@@ -1,37 +1,44 @@
 [
   {
-    "slug": "2026-11-14-ensino-de-computacao",
-    "title": "Ensino de Computação na Educação Básica",
-    "date": "2026-11-14T00:00:00.000Z",
-    "summary": "Como usar recursos digitais para integrar computação na educação básica.",
-    "tags": [
-      "Educação",
-      "Tecnologia",
-      "Computação"
-    ]
-  },
-  {
-    "slug": "_modelo",
-    "title": "Título da publicação",
-    "date": "2026-01-31T00:00:00.000Z",
-    "summary": "Uma ou duas frases que aparecem no carrossel e nos cards.",
+    "slug": "2026-11-16-inov-pedagogica-e-criatividade-docente",
+    "title": "Inovação Pedagógica e Criatividade Docente na Era Digital: Entre a Inteligência Coletiva, a Regulação e o Cuidado com a Saúde Mental",
+    "date": "2026-11-16T00:00:00.000Z",
+    "summary": "Uma análise aprofundada sobre o protagonismo e a criatividade do professor na era da cibercultura e da Inteligência Artificial, articulando o Conectivismo, os novos marcos legais brasileiros (BNCC da Computação, ECA Digital e Diretrizes de IA do MEC) e a urgência da saúde mental docente.",
     "area": [
-      "Educação digital"
+      "Educação digital",
+      "Inovação pedagógica"
     ],
     "atuacao": [
-      "Docência"
+      "Docência",
+      "Design Instrucional",
+      "Gestão educacional"
     ],
     "tags": [
-      "BNCC",
-      "REA"
+      "Inovação Pedagógica",
+      "Cibercultura",
+      "Conectivismo",
+      "BNCC da Computação",
+      "ECA Digital",
+      "Inteligência Artificial",
+      "Saúde Mental Docente"
     ],
-    "destaque": 0,
+    "autor": [
+      "pamella-balcacar"
+    ],
+    "destaque": 1,
     "formato": "Artigo",
     "publico": [
-      "Professores"
+      "Professores",
+      "Estudantes universitários",
+      "Gestores escolares"
     ],
-    "cover": "assets/img/blog/capa.webp",
-    "cover_alt": "Descrição da imagem de capa",
-    "rascunho": true
+    "cover": "assets/img/blog/prof-estudante-mesa-interativa.webp",
+    "cover_alt": "Professora e estudantes de ensino médio colaboram em sala moderna usando mesa interativa com complexas projeções holográficas.",
+    "habilidades": [
+      "EM13CO01",
+      "EM13CO25"
+    ],
+    "atualizado": "2026-11-12",
+    "comentarios": true
   }
 ]

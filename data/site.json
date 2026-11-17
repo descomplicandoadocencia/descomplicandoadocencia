@@ -1,0 +1,24 @@
+{
+  "name": "Descomplicando a Docência",
+  "home": {
+    "eyebrow": "EdTech para educação básica",
+    "title": "Recursos digitais, serviços e formação para transformar a prática docente.",
+    "text": "Descomplicando a Docência é uma plataforma de recursos pedagógicos, consultoria e mentoria para educação básica, com foco em acessibilidade, qualidade e impacto escolar.",
+    "visual": "assets/img/hero.webp"
+  },
+  "about": {
+    "eyebrow": "Sobre",
+    "title": "Educação, tecnologia e impacto pedagógico",
+    "paragraphs": [
+      "Somos uma plataforma dedicada a recursos digitais, consultoria e formação para a educação básica.",
+      "Entendemos a educação como direito público e a tecnologia como ferramenta de democratização do acesso ao conhecimento. A nossa proposta combina pesquisa, design pedagógico, inovação e responsabilidade social.",
+      "A transparência, a acessibilidade, a inclusão e o respeito ao conteúdo educativo livre são eixos centrais da nossa atuação."
+    ]
+  },
+  "licensing": {
+    "eyebrow": "Licenciamento",
+    "title": "Conteúdo e código em transparência",
+    "content": { "name": "CC BY-SA 4.0", "href": "https://creativecommons.org/licenses/by-sa/4.0/deed.pt" },
+    "code": { "name": "MIT", "href": "https://opensource.org/licenses/MIT" }
+  }
+}

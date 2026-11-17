@@ -3,69 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Descomplicando a Docência</title>
-    <meta
-      name="description"
-      content="Portal de recursos educacionais abertos, serviços pedagógicos e soluções digitais para educação básica."
-    />
+    <title>Política de privacidade · Descomplicando a Docência</title>
+    <meta name="description" content="Como o portal Descomplicando a Docência trata dados pessoais, de acordo com a LGPD." />
+    <link rel="canonical" href="https://descomplicandoadocencia.com.br/privacidade.html" />
     <meta name="theme-color" content="#0d1b2a" />
-    <meta property="og:title" content="Descomplicando a Docência" />
-    <meta
-      property="og:description"
-      content="Recursos digitais, consultoria, mentoria e formação para a educação básica."
-    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Descomplicando a Docência" />
+    <meta property="og:title" content="Política de privacidade · Descomplicando a Docência" />
+    <meta property="og:description" content="Como o portal Descomplicando a Docência trata dados pessoais, de acordo com a LGPD." />
+    <meta property="og:url" content="https://descomplicandoadocencia.com.br/privacidade.html" />
     <link rel="icon" href="assets/img/favicon.ico" />
+    <script>
+      (function () {
+        var d = document.documentElement, t = null;
+        d.classList.add("js");
+        try { t = localStorage.getItem("theme"); } catch (e) {}
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        }
+        d.setAttribute("data-theme", t);
+      })();
+    </script>
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <script type="module" src="assets/js/app.js" defer></script>
+    <script type="module" src="assets/js/shell.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-    <div class="bg-orb orb-one"></div>
-    <div class="bg-orb orb-two"></div>
+
     <header class="site-header">
-      <div class="container topbar">
-        <a class="brand" href="index.html#top" aria-label="Bio+Tech EduDesign — início">
-          <img src="assets/img/favicon.png" alt="" width="44" height="44" />
-          <div>
-            <span class="brand-kicker">Marca</span>
-            <strong>Bio+Tech EduDesign</strong>
-          </div>
-        </a>
-
-        <header class="site-header">
       <div class="container nav-wrap">
-        <a class="brand" href="#/inicio" aria-label="Início">
-          <img src="assets/img/logo.png" alt="" width="75" height="75" />
-          <span class="brand-text">escomplicando a Docência</span>
+        <a class="brand" href="index.html#/inicio">
+          <img src="assets/img/logo.png" alt="" width="61" height="48" />
+          <span class="brand-text">Descomplicando a Docência</span>
         </a>
 
-        <nav class="nav" aria-label="Navegação principal">
-          <a href="#/inicio">Início</a>
-          <a href="#/servicos">Serviços</a>
-          <a href="#/recursos">Recursos</a>
-          <a href="#/equipe">Equipe</a>
-          <a href="#/sobre">Sobre</a>
-          <a href="blog.html">Blog</a>
-          <a href="#/curso">Cursos</a>
-        </nav>
-
-        <button
-          class="theme-toggle"
-          type="button"
-          aria-label="Alternar entre tema claro e escuro"
-        >
-          Tema
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+          <span>Menu</span>
         </button>
+
+        <nav id="site-nav" class="nav" aria-label="Navegação principal" data-open="false">
+          <ul class="nav-list">
+          <li><a href="index.html#/inicio">Início</a></li>
+          <li><a href="index.html#/servicos">Serviços</a></li>
+          <li><a href="index.html#/recursos">Recursos</a></li>
+          <li><a href="index.html#/equipe">Equipe</a></li>
+          <li><a href="index.html#/sobre">Sobre</a></li>
+          <li><a href="index.html#/licenciamento">Licenciamento</a></li>
+          <li><a href="blog.html">Blog</a></li>
+            <li>
+              <button class="theme-toggle" type="button" aria-pressed="true">
+                <span class="theme-toggle-icon" aria-hidden="true"></span>
+                <span>Tema escuro</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
-    <main id="conteudo">
-      <article class="container post">
-        <nav class="crumbs" aria-label="Você está em"><a href="index.html">Início</a> / <span>Política de privacidade</span></nav>
+
+    <main id="conteudo" tabindex="-1">
+      <article class="post">
+        <nav class="crumbs" aria-label="Você está em">
+        <ol>
+          <li><a href="index.html#/inicio">Início</a></li>
+          <li aria-current="page">Política de privacidade</li>
+        </ol>
+      </nav>
         <h1>Política de privacidade</h1>
         <p class="meta">Última atualização: 15 de novembro de 2026</p>
         <div class="prose">
-<p>Esta política explica como o site <strong>Descomplicado a Docência</strong> (<a href="pricacidade.html">https://descomplicandoadocencia.com.br</a>) trata dados pessoais, em linguagem clara, de acordo com a Lei Geral de Proteção de Dados Pessoais (LGPD, Lei nº 13.709/2018).</p>
+          <p>Esta política explica como o site <strong>Descomplicando a Docência</strong> (<a href="https://descomplicandoadocencia.com.br">https://descomplicandoadocencia.com.br</a>) trata dados pessoais, em linguagem clara, de acordo com a Lei Geral de Proteção de Dados Pessoais (LGPD, Lei nº 13.709/2018).</p>
 <h2 id="1-quem-e-responsavel">1. Quem é responsável</h2>
 <p>Esse portal web é um projeto educacional mantido e vinculado à organização <a href="https://www.descomplicandoadocencia.com.br">Descomplicando a Docência</a>. Para assuntos sobre seus dados, use o canal indicado na seção 7.</p>
 <h2 id="2-dados-tratados-pelo-proprio-site">2. Dados tratados pelo próprio site</h2>
@@ -107,47 +116,44 @@
 <p>Para exercer esses direitos, entre em contato com a organização <a href="mailto:descomplicandoadocencia@gmail.com">Descomplicando a docência</a> por mensagem privada. <strong>Não envie dados pessoais em issues públicas.</strong> Para um comentário específico, informe o endereço da publicação e o trecho a ser removido, sem copiar dados pessoais.</p>
 <h2 id="8-alteracoes">8. Alterações</h2>
 <p>Esta política pode ser atualizada. A data da última revisão aparece no topo desta página, e as mudanças ficam registradas no histórico do repositório.</p>
-
         </div>
       </article>
     </main>
+
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <h3>Descomplicando a Docência</h3>
+          <h2 class="footer-title">Descomplicando a Docência</h2>
           <p>Recursos digitais, formação e inovação pedagógica para educação básica.</p>
         </div>
 
         <nav aria-label="Mapa do site" class="sitemap">
-          <h2>Mapa do site</h2>
+          <h2 class="footer-title">Mapa do site</h2>
           <ul class="sitemap-list">
-            <li><a href="#/servicos">Serviços</a></li>
-            <li><a href="#/recursos">Recursos</a></li>
-            <li><a href="equipe.html">Equipe</a></li>
-            <li><a href="#/sobre">Sobre</a></li>
-            <li><a href="#/cursos">Cursos</a></li>
+            <li><a href="index.html#/inicio">Início</a></li>
+            <li><a href="index.html#/servicos">Serviços</a></li>
+            <li><a href="index.html#/recursos">Recursos</a></li>
+            <li><a href="index.html#/equipe">Equipe</a></li>
+            <li><a href="index.html#/sobre">Sobre</a></li>
+            <li><a href="index.html#/licenciamento">Licenciamento</a></li>
             <li><a href="blog.html">Blog</a></li>
-            <li><a href="#/coluna">Coluna</a></li>
             <li><a href="privacidade.html">Política de privacidade</a></li>
             <li><a href="termos.html">Termos e regras de uso</a></li>
-            <li><a href="#/licenciamento">Licenciamento</a></li>
           </ul>
         </nav>
 
         <div>
-          <h4>Licenças</h4>
+          <h2 class="footer-title">Licenças</h2>
           <p>
             Conteúdo sob
-            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt" target="_blank" rel="noopener">CC BY-SA 4.0</a>
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt" target="_blank" rel="noopener">CC BY-SA 4.0<span class="visually-hidden"> (abre em nova aba)</span></a>
           </p>
           <p>
             Código sob
-            <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT</a>
+            <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT<span class="visually-hidden"> (abre em nova aba)</span></a>
           </p>
         </div>
       </div>
     </footer>
-    <script src="assets/js/lib.js"></script>
-    <script src="assets/js/theme.js"></script>
   </body>
 </html>

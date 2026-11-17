@@ -3,6 +3,7 @@
 title: Título da publicação
 date: 2026-01-31            # AAAA-MM-DD (obrigatório)
 summary: Uma ou duas frases que aparecem no carrossel e nos cards.
+autor: [andre-duran]        # slug(s) de data/team.json: liga o texto ao menu lateral de colunistas
 area: [Educação digital]    # uma ou mais áreas do conhecimento: [A, B] (menu lateral)
 atuacao: [Docência]         # uma ou mais atuações profissionais: [A, B] (menu lateral)
 tags: [BNCC, REA]           # lista de tags

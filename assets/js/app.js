@@ -1,27 +1,21 @@
+/**
+ * app.js — versão principal (index.html)
+ *
+ * Sprint 1: a infraestrutura (roteador, tema, menu, skip link) vive em /modules
+ * e é compartilhada com a versão modular (index-modular.html). As funções
+ * render*() e os dados abaixo continuam aqui, sem mudança de conteúdo, e serão
+ * extraídos para módulos/JSON na Sprint 2.
+ */
+import { createRouter } from "../../modules/router.js";
+import { initTheme } from "../../modules/theme.js";
+import { initMenu } from "../../modules/menu.js";
+import { initSkipLink } from "../../modules/a11y.js";
+import { initials } from "../../modules/dom.js";
+import { filterResources } from "../../modules/filter.js";
+
 const app = document.getElementById("app");
-const themeToggle = document.querySelector(".theme-toggle");
 
-const defaultTheme = () => {
-  try {
-    const saved = localStorage.getItem("theme");
-    if (saved) return saved;
-    return matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-  } catch {
-    return "dark";
-  }
-};
-
-const applyTheme = (theme) => {
-  document.documentElement.setAttribute("data-theme", theme);
-  if (themeToggle) {
-    themeToggle.textContent = theme === "dark" ? "Claro" : "Escuro";
-  }
-  try {
-    localStorage.setItem("theme", theme);
-  } catch {
-    // Ignora falhas em ambientes restritos
-  }
-};
+/* ---------------------------------------------------------------- dados -- */
 
 const team = [
   {
@@ -65,6 +59,9 @@ const resources = [
   }
 ];
 
+/* ---------------------------------------------------------------- views -- */
+/* Cada página tem exatamente um <h1> (o roteador move o foco para ele). */
+
 const renderHome = () => {
   app.innerHTML = `
     <section class="section">
@@ -82,17 +79,17 @@ const renderHome = () => {
           </div>
         </div>
 
-        <div class="hero-panel">
+        <div class="hero-panel" aria-hidden="true">
           <div class="hero-visual">Plataforma educativa</div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" aria-labelledby="home-servicos">
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Serviços</span>
-          <h2>Atuação profissional</h2>
+          <h2 id="home-servicos">Atuação profissional</h2>
         </div>
 
         <div class="grid-4">
@@ -116,11 +113,11 @@ const renderHome = () => {
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" aria-labelledby="home-recursos">
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Recursos</span>
-          <h2>Catálogo de materiais</h2>
+          <h2 id="home-recursos">Catálogo de materiais</h2>
         </div>
         <div class="grid-3">
           <article class="resource-card">
@@ -147,24 +144,24 @@ const renderServices = () => {
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Serviços</span>
-          <h2>Consultoria, mentoria e formação</h2>
+          <h1>Consultoria, mentoria e formação</h1>
         </div>
 
         <div class="grid-2">
           <article class="service-card">
-            <h3>Consultoria Pedagógica</h3>
+            <h2>Consultoria Pedagógica</h2>
             <p>Diagnóstico pedagógico, mapeamento de competências e alinhamento curricular.</p>
           </article>
           <article class="service-card">
-            <h3>Mentorias</h3>
+            <h2>Mentorias</h2>
             <p>Acompanhamento personalizado para professores, equipes e escolas.</p>
           </article>
           <article class="service-card">
-            <h3>Treinamentos</h3>
+            <h2>Treinamentos</h2>
             <p>Formação profissional em metodologias ativas e tecnologias de ensino.</p>
           </article>
           <article class="service-card">
-            <h3>Assessoria Pedagógica</h3>
+            <h2>Assessoria Pedagógica</h2>
             <p>Estruturação de projetos pedagógicos e materiais digitais de apoio ao ensino.</p>
           </article>
         </div>
@@ -179,20 +176,22 @@ const renderResources = () => {
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Recursos</span>
-          <h2>Catálogo de recursos educacionais</h2>
+          <h1>Catálogo de recursos educacionais</h1>
         </div>
 
         <div class="search-box">
-          <input id="resource-search" type="search" placeholder="Buscar por tema ou competência" aria-label="Buscar recursos" />
+          <label for="resource-search" class="visually-hidden">Buscar recursos por tema ou competência</label>
+          <input id="resource-search" type="search" placeholder="Buscar por tema ou competência" />
         </div>
 
-        <div class="filters" aria-label="Filtros de recursos">
-          <button type="button" class="filter-btn active" data-filter="all">Todos</button>
-          <button type="button" class="filter-btn" data-filter="REA">REA</button>
-          <button type="button" class="filter-btn" data-filter="OAD">OAD</button>
-          <button type="button" class="filter-btn" data-filter="RED">RED</button>
+        <div class="filters" role="group" aria-label="Filtrar por tipo de recurso">
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">Todos</button>
+          <button type="button" class="filter-btn" data-filter="REA" aria-pressed="false">REA</button>
+          <button type="button" class="filter-btn" data-filter="OAD" aria-pressed="false">OAD</button>
+          <button type="button" class="filter-btn" data-filter="RED" aria-pressed="false">RED</button>
         </div>
 
+        <p id="resource-count" class="status" role="status"></p>
         <div id="resource-grid" class="grid-3"></div>
       </div>
     </section>
@@ -201,23 +200,27 @@ const renderResources = () => {
   let currentFilter = "all";
 
   const renderProductGrid = () => {
-    const q = (document.getElementById("resource-search")?.value || "").trim().toLowerCase();
-    const list = resources.filter((item) => {
-      const matchesType = currentFilter === "all" || item.type === currentFilter;
-      const haystack = `${item.title} ${item.summary} ${item.tags.join(" ")} `.toLowerCase();
-      return matchesType && haystack.includes(q);
+    // Busca sem acentos e por todas as palavras (mesma regra da versão modular).
+    const list = filterResources(resources, {
+      type: currentFilter,
+      query: document.getElementById("resource-search")?.value || ""
     });
+
+    document.getElementById("resource-count").textContent =
+      list.length === 0
+        ? "Nenhum recurso encontrado para esta busca."
+        : `${list.length} ${list.length === 1 ? "recurso encontrado" : "recursos encontrados"}.`;
 
     document.getElementById("resource-grid").innerHTML = list
       .map(
         (item) => `
           <article class="resource-card">
             <span class="tag">${item.type}</span>
-            <h3>${item.title}</h3>
+            <h2>${item.title}</h2>
             <p>${item.summary}</p>
-            <div class="meta-list">
-              ${item.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
-            </div>
+            <ul class="meta-list" aria-label="Temas">
+              ${item.tags.map((tag) => `<li class="tag">${tag}</li>`).join("")}
+            </ul>
           </article>
         `
       )
@@ -230,7 +233,7 @@ const renderResources = () => {
     button.addEventListener("click", () => {
       currentFilter = button.dataset.filter;
       document.querySelectorAll(".filter-btn").forEach((btn) => {
-        btn.classList.toggle("active", btn === button);
+        btn.setAttribute("aria-pressed", String(btn === button));
       });
       renderProductGrid();
     });
@@ -245,7 +248,7 @@ const renderTeam = () => {
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Equipe</span>
-          <h2>Quem desenvolve a proposta</h2>
+          <h1>Quem desenvolve a proposta</h1>
         </div>
 
         <div class="grid-3">
@@ -253,8 +256,8 @@ const renderTeam = () => {
             .map(
               (person) => `
                 <article class="team-card">
-                  <img src="${person.photo}" alt="${person.name}" />
-                  <h3>${person.name}</h3>
+                  <img src="${person.photo}" alt="" width="96" height="96" data-name="${person.name}" />
+                  <h2>${person.name}</h2>
                   <p><strong>${person.role}</strong></p>
                   <p>${person.bio}</p>
                 </article>
@@ -270,10 +273,10 @@ const renderTeam = () => {
 const renderAbout = () => {
   app.innerHTML = `
     <section class="section">
-      <div class="container">
+      <div class="container prose">
         <div class="section-head">
           <span class="eyebrow">Sobre</span>
-          <h2>Educação, tecnologia e impacto pedagógico</h2>
+          <h1>Educação, tecnologia e impacto pedagógico</h1>
         </div>
 
         <p>Somos uma plataforma dedicada a recursos digitais, consultoria e formação para a educação básica.</p>
@@ -294,46 +297,79 @@ const renderAbout = () => {
 const renderLicensing = () => {
   app.innerHTML = `
     <section class="section">
-      <div class="container">
+      <div class="container prose">
         <div class="section-head">
           <span class="eyebrow">Licenciamento</span>
-          <h2>Conteúdo e código em transparência</h2>
+          <h1>Conteúdo e código em transparência</h1>
         </div>
 
-        <p>Os conteúdos educativos desta plataforma estão licenciados sob <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p>
-        <p>O código-fonte está disponível sob a licença <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT</a>.</p>
+        <p>Os conteúdos educativos desta plataforma estão licenciados sob <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt" target="_blank" rel="noopener">CC BY-SA 4.0<span class="visually-hidden"> (abre em nova aba)</span></a>.</p>
+        <p>O código-fonte está disponível sob a licença <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT<span class="visually-hidden"> (abre em nova aba)</span></a>.</p>
       </div>
     </section>
   `;
 };
 
+const renderNotFound = () => {
+  app.innerHTML = `
+    <section class="section">
+      <div class="container prose">
+        <div class="section-head">
+          <span class="eyebrow">Erro 404</span>
+          <h1>Página não encontrada</h1>
+        </div>
+        <p>O endereço que você abriu não existe neste portal.</p>
+        <p><a class="btn primary" href="#/inicio">Voltar ao início</a></p>
+      </div>
+    </section>
+  `;
+};
+
+/* --------------------------------------------------------------- rotas ---- */
+
 const routes = {
-  "#/inicio": renderHome,
-  "#/servicos": renderServices,
-  "#/recursos": renderResources,
-  "#/equipe": renderTeam,
-  "#/sobre": renderAbout,
-  "#/licenciamento": renderLicensing
+  "/inicio": { title: "Início", render: renderHome },
+  "/servicos": { title: "Serviços", render: renderServices },
+  "/recursos": { title: "Recursos", render: renderResources },
+  "/equipe": { title: "Equipe", render: renderTeam },
+  "/sobre": { title: "Sobre", render: renderAbout },
+  "/licenciamento": { title: "Licenciamento", render: renderLicensing }
 };
 
-const route = () => {
-  const hash = window.location.hash || "#/inicio";
-  const handler = routes[hash] || renderHome;
-  handler();
-};
+const notFound = { title: "Página não encontrada", render: renderNotFound };
 
-const initTheme = () => {
-  const theme = defaultTheme();
-  applyTheme(theme);
+/* ------------------------------------------------------------ inicialização */
 
-  if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      applyTheme(next);
-    });
-  }
-};
+// Fotos ainda não enviadas ao repositório: troca a imagem quebrada por iniciais.
+// (O evento "error" não borbulha; por isso usamos a fase de captura.)
+app?.addEventListener(
+  "error",
+  (event) => {
+    const img = event.target;
+    if (!(img instanceof HTMLImageElement) || !img.dataset.name) return;
+    const avatar = document.createElement("span");
+    avatar.className = "avatar";
+    avatar.setAttribute("aria-hidden", "true");
+    avatar.textContent = initials(img.dataset.name);
+    img.replaceWith(avatar);
+  },
+  true
+);
 
-window.addEventListener("hashchange", route);
-initTheme();
-route();
+initTheme(document.querySelector(".theme-toggle"));
+const menu = initMenu({
+  toggle: document.querySelector(".nav-toggle"),
+  nav: document.getElementById("site-nav")
+});
+initSkipLink(document.querySelector(".skip-link"));
+
+if (app) {
+  createRouter({
+    routes,
+    notFound,
+    outlet: app,
+    siteName: "Descomplicando a Docência",
+    homeTitle: "Descomplicando a Docência · Recursos educacionais abertos",
+    onChange: () => menu.close()
+  }).start();
+}
