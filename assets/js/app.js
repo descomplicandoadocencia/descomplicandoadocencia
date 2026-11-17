@@ -30,6 +30,7 @@ const team = [
     role: "Co-fundadora | CTO e editora de Ciência da Natureza e suas tecnologias",
     bio: "Bióloga, Tecnóloga em Informática e educadora, com atuação em tecnologias educacionais e desenvolvimento de soluções digitais.",
     lattes: "http://lattes.cnpq.br/1206643836491711",
+    linkedin: "https://www.linkedin.com/in/pamellabiotec/",
     photo: "assets/img/team/pamella.jpeg"
   },
   {
@@ -266,12 +267,37 @@ const renderTeam = () => {
                   <h2>${person.name}</h2>
                   <p><strong>${person.role}</strong></p>
                   <p>${person.bio}</p>
-                  <p>${person.lattes}</p>
+                  
+                  <div class="social-buttons">
+                    ${
+                      person.lattes
+                        ? `<a href="${person.lattes}" target="_blank" rel="noopener noreferrer" class="btn-social btn-lattes">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                              <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                            </svg>
+                            Lattes
+                          </a>`
+                        : ""
+                    }
+                    ${
+                      person.linkedin
+                        ? `<a href="${person.linkedin}" target="_blank" rel="noopener noreferrer" class="btn-social btn-linkedin">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                            </svg>
+                            LinkedIn
+                          </a>`
+                        : ""
+                    }
+                  </div>
                 </article>
               `
             )
             .join("")}
         </div>
+
+
+    
       </div>
     </section>
   `;

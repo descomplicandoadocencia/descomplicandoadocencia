@@ -467,6 +467,44 @@ main:focus,
   color: var(--text);
 }
 
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-social {
+  display: inline-flex;       /* Alinha ícone e texto na mesma linha */
+  align-items: center;        /* Centraliza verticalmente o ícone com o texto */
+  gap: 8px;                   /* Espaço entre o ícone e a palavra */
+  padding: 8px 16px;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.btn-social svg {
+  flex-shrink: 0;             /* Impede que o ícone seja esmagado em telas pequenas */
+}
+
+.btn-social:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.btn-lattes {
+  background-color: #1f4e78; 
+}
+
+.btn-linkedin {
+  background-color: #0a66c2; 
+}
+
 .cta-row {
   display: flex;
   flex-wrap: wrap;
