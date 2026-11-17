@@ -20,21 +20,24 @@ const app = document.getElementById("app");
 const team = [
   {
     name: "Lidiane Silveira Soares",
-    role: "Co-fundadora | CEO e editora de Ciências Humanas",
-    bio: "Pesquisadora e educadora com atuação em políticas públicas, formação de professores e educação aplicada.",
-    photo: "assets/img/team/lidiane.jpg"
+    role: "Co-fundadora | CEO e editora de Ciências Humanas e suas tecnologias",
+    bio: "Pesquisadora e educadora com atuação em relações raciais, formação de professores e educação aplicada, atuando principalmente nos seguintes temas: Educação Patrimonial; Patrimônio histórico e cultural, Educação de Jovens e Adultos, Educação étnico-racial, Estudos arqueológicos.",
+    lattes: "http://lattes.cnpq.br/8913787579242413",
+    photo: "assets/img/team/lidiane.jpeg"
   },
   {
     name: "Pâmella Araújo Balcaçar",
-    role: "Co-fundadora | CTO e editora de Ciências Naturais",
-    bio: "Bióloga, tecnologista e educadora, com atuação em design educacional e desenvolvimento de soluções digitais.",
-    photo: "assets/img/team/pamella.jpg"
+    role: "Co-fundadora | CTO e editora de Ciência da Natureza e suas tecnologias",
+    bio: "Bióloga, Tecnóloga em Informática e educadora, com atuação em tecnologias educacionais e desenvolvimento de soluções digitais.",
+    lattes: "http://lattes.cnpq.br/1206643836491711",
+    photo: "assets/img/team/pamella.jpeg"
   },
   {
-    name: "André Luiz Gomes Duran",
-    role: "Colunista jurídico e assessor",
-    bio: "Especialista em legislação e formação docente com olhar crítico para o ensino e a prática educativa.",
-    photo: "assets/img/team/andre.jpg"
+    name: "Thais Silva Rodrigues",
+    role: "Co-fundadora | CEO e editora da Educação Infantil",
+    bio: "Pedagóga e Química. Docente da educação Infantil (efetiva) lotada no CMEI Monteiro Lobato. Mestranda do PROFCOMP (Programa de pós-graduação Stricto sensu em Ensino de Ciência da Computação), em Rede Nacional, polo Rondonópolis/ UFR. | Projeto: Desenvolvimento e validação de um produto educacional baseado em Computação Desplugada para o ensino introdutório da arquitetura de computadores na Educação Infantil, alinhado à Base Nacional Comum Curricular da Computação.",
+    lattes: "https://lattes.cnpq.br/8581015130355377",
+    photo: "assets/img/team/thais.jpeg"
   }
 ];
 
@@ -79,9 +82,12 @@ const renderHome = () => {
           </div>
         </div>
 
-        <div class="hero-panel" aria-hidden="true">
-          <div class="hero-visual">Plataforma educativa</div>
+        <div class="hero-panel">
+          <div class="hero-visual">
+          <img src="./assets/img/hero-dad.webp" alt="Ilustração dos serviços educativos">
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -260,6 +266,7 @@ const renderTeam = () => {
                   <h2>${person.name}</h2>
                   <p><strong>${person.role}</strong></p>
                   <p>${person.bio}</p>
+                  <p>${person.lattes}</p>
                 </article>
               `
             )

@@ -16,7 +16,7 @@ const asList = (value) => (Array.isArray(value) ? value : value ? [value] : []);
 export const isPublished = (post) =>
   Boolean(post) && post.rascunho !== true && !String(post.slug ?? "").startsWith("_");
 
-/** "#/autor/andre-duran" → "andre-duran"; qualquer outro hash → null (sem filtro). */
+/** "#/autor/pamella-balcacar" → "pamella-balcacar"; qualquer outro hash → null (sem filtro). */
 export function authorFromHash(hash) {
   const match = /^#\/autor\/([a-z0-9-]+)\/?$/i.exec(hash);
   return match ? match[1].toLowerCase() : null;
