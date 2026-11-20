@@ -7,7 +7,7 @@
    3. Base: tipografia, links e foco visível
    4. Layout: container, seções e grades
    5. Componentes: skip link, cabeçalho/menu, botões, hero, cartões, tags, filtros
-   6. Páginas: texto corrido (.prose), blog, rodapé
+   6. Páginas: texto corrido (.prose), blog, rodapé, leitor em voz alta dos posts (6.4)
    7. Preferências do usuário: movimento reduzido, alto contraste, impressão
 
    Contraste: todas as combinações texto/fundo e borda/fundo usadas aqui foram
@@ -737,6 +737,7 @@ main:focus,
 .prose {
   max-width: var(--measure);
   margin-top: var(--sp-5);
+  overflow-wrap: break-word; /* URL longa num texto não deve gerar rolagem horizontal no celular */
 }
 
 .prose > * + * {
@@ -913,6 +914,131 @@ main:focus,
   }
 }
 
+/* 6.4 Leitor em voz alta dos posts (barra em templates/post.html + assets/js/leitor-voz.js) */
+:root {
+  /* tom do destaque: o --primary do tema escuro a 16% sobre o fundo (texto continua ≥ 4,5:1) */
+  --leitura-bg: rgb(78 205 196 / 0.16);
+}
+
+:root[data-theme="light"] {
+  --leitura-bg: rgb(10 107 112 / 0.14); /* --primary do tema claro */
+}
+
+.leitor-voz {
+  position: sticky;
+  top: var(--leitor-topo, 4.5rem); /* o JS mede o cabeçalho fixo; 4,5rem é o valor de reserva */
+  z-index: 40; /* abaixo do cabeçalho (50) */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2) var(--sp-3);
+  margin-top: var(--sp-4);
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.leitor-voz .btn {
+  min-height: var(--tap);
+  padding: 0 var(--sp-4);
+  gap: var(--sp-2);
+}
+
+.leitor-voz__icone {
+  flex: none;
+  width: 1.1em;
+  height: 1.1em;
+  fill: currentColor;
+}
+
+/* "Parar" fica sem efeito (mas focável) enquanto não há leitura. */
+.leitor-voz [aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.leitor-voz [aria-disabled="true"]:hover {
+  transform: none;
+}
+
+.leitor-voz__velocidade {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.leitor-voz__velocidade label {
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+
+.leitor-voz select {
+  min-height: var(--tap);
+  padding: 0 var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.leitor-voz__progresso {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+
+/* Bloco que está sendo lido: fundo suave + barra lateral (a cor sozinha não é o único sinal).
+   Sem padding/margem: ativar o destaque não desloca o texto. */
+.tts-lendo {
+  position: relative;
+  border-radius: 0.35rem;
+  background: var(--leitura-bg);
+  box-shadow: 0 0 0 0.35rem var(--leitura-bg);
+  scroll-margin-top: calc(var(--leitor-topo, 4.5rem) + 5.5rem); /* cabeçalho + barra não cobrem o bloco */
+}
+
+.tts-lendo::before {
+  content: "";
+  position: absolute;
+  inset-block: -0.35rem;
+  left: -0.9rem;
+  width: 0.3rem;
+  border-radius: 0.15rem;
+  background: var(--primary);
+}
+
+/* Em item de lista a barra lateral fica à esquerda do marcador (•), sem cobri-lo. */
+li.tts-lendo::before {
+  left: -1.6rem;
+}
+
+/* Celular: "Parar" vira só o ícone (o texto segue disponível a leitores de tela),
+   o rótulo da velocidade fica só para leitores de tela e o contador some — tudo em uma linha. */
+@media (max-width: 35.99rem) {
+  .leitor-voz__texto-parar,
+  .leitor-voz__velocidade label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .leitor-voz .btn.secondary {
+    min-width: var(--tap);
+    padding-inline: var(--sp-3);
+  }
+
+  .leitor-voz__progresso {
+    display: none;
+  }
+}
+
 /* 7. PREFERÊNCIAS DO USUÁRIO ---------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -941,12 +1067,24 @@ main:focus,
   .service-card,
   .resource-card,
   .team-card,
-  .post-card {
+  .post-card,
+  .leitor-voz,
+  .leitor-voz select {
     border: 1px solid ButtonText;
   }
 
   .nav a[aria-current="page"] {
     border-bottom-color: Highlight;
+  }
+
+  /* fundos são removidos neste modo: o bloco lido ganha contorno e barra do sistema */
+  .tts-lendo {
+    outline: 2px solid Highlight;
+    outline-offset: 0.2rem;
+  }
+
+  .tts-lendo::before {
+    background: Highlight;
   }
 }
 
@@ -954,7 +1092,17 @@ main:focus,
   .site-header,
   .site-footer,
   .skip-link,
-  .sidebar {
+  .sidebar,
+  .leitor-voz {
+    display: none;
+  }
+
+  .tts-lendo {
+    background: none;
+    box-shadow: none;
+  }
+
+  .tts-lendo::before {
     display: none;
   }
 

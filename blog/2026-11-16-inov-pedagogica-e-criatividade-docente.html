@@ -27,6 +27,7 @@
     </script>
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <script type="module" src="../assets/js/shell.js"></script>
+    <script type="module" src="../assets/js/leitor-voz.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -74,6 +75,31 @@
         </nav>
         <h1>Inovação Pedagógica e Criatividade Docente na Era Digital: Entre a Inteligência Coletiva, a Regulação e o Cuidado com a Saúde Mental</h1>
         <p class="meta"><time datetime="2026-11-16">16 de novembro de 2026</time> · por Pâmella Araújo Balcaçar · atualizado em <time datetime="2026-11-12">12 de novembro de 2026</time></p>
+
+        <div class="leitor-voz" role="group" aria-label="Ouvir este artigo" data-leitor-voz hidden>
+          <button type="button" class="btn primary" data-leitor-voz-alternar>
+            <svg class="leitor-voz__icone" data-icone="tocar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z" /></svg>
+            <svg class="leitor-voz__icone" data-icone="pausar" viewBox="0 0 24 24" aria-hidden="true" focusable="false" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z" /></svg>
+            <span data-leitor-voz-rotulo>Ouvir</span>
+          </button>
+          <button type="button" class="btn secondary" data-leitor-voz-parar aria-disabled="true">
+            <svg class="leitor-voz__icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6h12v12H6z" /></svg>
+            <span class="leitor-voz__texto-parar">Parar</span>
+          </button>
+          <div class="leitor-voz__velocidade">
+            <label for="leitor-voz-velocidade">Velocidade</label>
+            <select id="leitor-voz-velocidade" data-leitor-voz-velocidade>
+              <option value="0.75">0,75x</option>
+              <option value="1" selected>1x</option>
+              <option value="1.25">1,25x</option>
+              <option value="1.5">1,5x</option>
+              <option value="2">2x</option>
+            </select>
+          </div>
+          <span class="leitor-voz__progresso" data-leitor-voz-progresso></span>
+          <span class="visually-hidden" role="status" data-leitor-voz-status></span>
+        </div>
+
         <figure><img src="../assets/img/blog/prof-estudante-mesa-interativa.webp" alt="Professora e estudantes de ensino médio colaboram em sala moderna usando mesa interativa com complexas projeções holográficas." /></figure>
         <div class="prose">
           <p>Vivemos um ponto de inflexão histórico na educação brasileira. À medida que reconstruímos nossos espaços digitais de aprendizagem — a exemplo desta nova arquitetura web do portal <strong>Descomplicando a Docência</strong>, concebida em código aberto, ágil e colaborativo —, torna-se evidente que modernizar ferramentas não basta: é urgente ressignificar a <strong>intencionalidade pedagógica</strong> e a <strong>criatividade docente</strong>.</p>
@@ -165,7 +191,7 @@
 
         </div>
         <ul class="meta-list" aria-label="Tags"><li class="tag">Inovação Pedagógica</li><li class="tag">Cibercultura</li><li class="tag">Conectivismo</li><li class="tag">BNCC da Computação</li><li class="tag">ECA Digital</li><li class="tag">Inteligência Artificial</li><li class="tag">Saúde Mental Docente</li></ul>
-        <p><a href="../blog.html">← Voltar ao blog</a></p>
+        <p data-no-tts><a href="../blog.html">← Voltar ao blog</a></p>
       </article>
     </main>
 
