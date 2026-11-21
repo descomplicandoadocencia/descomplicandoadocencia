@@ -11,7 +11,7 @@ destaque: 1
 formato: Artigo
 publico: [Professores, Estudantes universitários, Gestores escolares]
 habilidades: [EM13CO01, EM13CO25]
-atualizado: 2026-11-12
+atualizado: 2026-11-18
 comentarios: true
 cover: assets/img/blog/prof-estudante-mesa-interativa.webp
 cover_alt: "Professora e estudantes de ensino médio colaboram em sala moderna usando mesa interativa com complexas projeções holográficas."
