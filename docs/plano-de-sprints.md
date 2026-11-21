@@ -102,12 +102,13 @@ Mesmo espírito do Bio+Tech EduDesign: shell global, CSS tokens, SPA por hash, r
 | P1 | `termos.html`: 6 parágrafos foram ajustados (nome da marca, escopo, atribuição CC BY-SA, canal de denúncia do Disqus, remoção de "Google Fonts", e-mail de contato). **Requer revisão jurídica/editorial.** | Alto | Sprint 5 (ou antes da publicação) |
 | P2 | Conteúdo duplicado: a versão principal tem 3 recursos escritos em `app.js`; `data/products.json` tem 4. | Médio | **Sprint 2** (principal passa a ler os JSON) |
 | P3 | Cabeçalho/rodapé repetidos em 6 páginas HTML (gerados por script fora do repositório). Risco de divergência. | Médio | **Sprint 2** (script de consistência ou parciais no build) |
-| P4 | Fotos da equipe (`assets/img/team/*.jpg`) não existem; o card cai para avatar de iniciais. | Baixo | Sprint 5 |
-| P5 | Post de exemplo sem campo `autor`; o menu lateral só filtra quando há autores nos posts. | Baixo | Sprint 5 |
+| P4 | Fotos da equipe (`assets/img/team/*.jpg`) existem; Foi corrigido manualmente | Baixo | OK |
+| P5 | Post de exemplo com campo `autor`; o menu lateral só filtra quando há autores nos posts. | Baixo | OK |
 | P6 | Passo "Publicar arquivos gerados" do workflow falhava (`git add` com `recursos`/`sitemap.xml` inexistentes). Corrigido para adicionar apenas caminhos existentes; **não foi executado no GitHub Actions**. | Médio | Validar no primeiro push (Sprint 6) |
 | P7 | `scripts/check-links.mjs` do legado cobre apenas os posts gerados; as páginas HTML da raiz não passam por ele. | Baixo | Sprint 6 |
 | P8 | VLibras só existe em `404.html`; carrossel legado (`js/carousel.js`, `js/publicacoes.json`) não está ligado à nova home. | Baixo | Sprints 4 e 5 |
 | P9 | **Inconsistência de licença:** `LICENSE-CONTEUDO.md` (herdado do legado) declara **CC BY 4.0**, enquanto todas as páginas, `data/site.json` e a definição do projeto declaram **CC BY-SA 4.0**. O arquivo não foi alterado: a escolha da licença é decisão da autoria. | Alto | Resolver antes de publicar (Sprint 5) |
+| P10 | Após adicionar o recurso de leitor de voz documentado em `docs/leitor-de-voz.md`, mas sem documentá-lo no `docs/plano de sprints.md` | Baixo | Auditar as pendências antes de transitar entre as (Sprint 1-2)|
 
 ---
 
